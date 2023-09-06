@@ -1,4 +1,4 @@
-export default function postCity ( req, res ) {
+export function postCity ( req, res ) {
     try {
 
     } catch (err) {
