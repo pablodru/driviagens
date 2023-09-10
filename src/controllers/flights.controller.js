@@ -1,15 +1,13 @@
-export async function postFlight ( req, res ) {
-    try {
+import { flightService } from "../services/flights.service.js";
 
-    } catch (err) {
-        return res.status(500).send(err.message)
-    }
+export async function postFlight ( req, res ) {
+    const { origin, destination, date } = req.body;
+
+    await flightService.postFlight( origin, destination, date );
+
+    return res.sendStatus(201);
 }
 
 export async function getFlights ( req, res ) {
-    try {
 
-    } catch (err) {
-        return res.status(500).send(err.message)
-    }
 }

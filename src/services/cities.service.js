@@ -1,4 +1,4 @@
-import { errors } from "../errors/conflict.error.js";
+import { errors } from "../errors/errors.js";
 import { cityRepository } from "../repository/cities.repository.js";
 
 async function postCity ( name ) {
