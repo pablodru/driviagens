@@ -13,3 +13,17 @@ export function validateSchema (schema) {
         next();
     }
 }
+
+export function validateSchemaQuery (schema) {
+    
+    return (req, res, next) => {
+        const validation = schema.validate(req.query, { abortEarly: false });
+    
+        if( validation.error ){
+            const err = validation.error.details.map(detail => detail.message);
+            throw errors.unprocessableEntity("Schema", err)
+        }
+
+        next();
+    }
+}

@@ -9,5 +9,11 @@ export async function postFlight ( req, res ) {
 }
 
 export async function getFlights ( req, res ) {
+    const { origin, destination } = req.query;
+    const smallerDate = req.query["smaller-date"];
+    const biggerDate = req.query["bigger-date"];
 
+    const flights = await flightService.getFlights( origin, destination, smallerDate, biggerDate );
+
+    return res.status(200).send(flights);
 }
