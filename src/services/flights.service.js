@@ -40,7 +40,9 @@ async function getFlights ( origin, destination, smallerDate, biggerDate ) {
 
     if ((smallerDate && !biggerDate) || (!smallerDate && biggerDate)) throw errors.unprocessableEntity("Dates");
 
-    if ( !await diffDates(smallerDate, biggerDate) ) throw errors.badRequest("Date");
+    if ( smallerDate && biggerDate ){
+        if ( !await diffDates(smallerDate, biggerDate) ) throw errors.badRequest("Date");
+    }
 
     const flights = await flightRepository.getFlightsDB( origin, destination, smallerDate, biggerDate );
 
