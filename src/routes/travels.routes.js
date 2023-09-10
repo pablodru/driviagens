@@ -5,6 +5,6 @@ import { travelSchema } from "../schemas/travels.schema.js";
 
 const travelRouter = Router();
 
-travelRouter.post('/travels', validateSchema(travelSchema), postTravel);
+travelRouter.post('/travels', postTravel);
 
 export default travelRouter;
