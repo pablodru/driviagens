@@ -8,6 +8,10 @@ export async function postPassenger ( req, res ) {
     res.sendStatus(201)
 }
 
-export function getPassengerTravels ( req, res ) {
+export async function getPassengerTravels ( req, res ) {
+    const { name } = req.query;
 
+    const travels = await passengersService.getPassengerTravels(name);
+
+    res.send(travels)
 }

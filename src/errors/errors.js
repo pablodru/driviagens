@@ -27,5 +27,12 @@ function badRequest ( resource = "Item" ) {
     }
 }
 
+function internalServerError ( resource = "Item" ) {
+    return {
+        type: "internalServerError",
+        message: "Too many results"
+    }
+}
 
-export const errors = { conflict, notFound, unprocessableEntity, badRequest }
+
+export const errors = { conflict, notFound, unprocessableEntity, badRequest, internalServerError }
